@@ -193,19 +193,19 @@ console.log(nameGreeting)
 */
 
 faveColorFinder = color => {
-  
-  switch(color.toUpperCase) {
-    case 'RED': return 'red is a great color'
-    break;
-    case 'GREEN': return 'green is a solid favorite color'
-    break;
-    case 'BLACK': return 'so trendy'
-    break;
-    default: return 'you need to evaluate your favorite color choice'
+  color = color.toLowerCase()
+  if (color.toLowerCase() === 'red') {
+    return 'red is a great color'
+  } else if (color == 'green') {
+    return 'green is a solid favorite color'
+  } else if (color == 'black') {
+    return 'so trendy'
+  } else {
+    return 'you need to evaluate your favorite color choice.'
   }
 }
 
-let colorRating = faveColorFinder("BLACK")
+let colorRating = faveColorFinder("yellow")
 console.log(colorRating)
 
 
@@ -278,8 +278,8 @@ bigOrSmall = arr => {
       answers.push("small")
     }
   }
-  let arrayEvaluator = answers
-  return arrayEvaluator
+  
+  return answers
 }
 
 console.log(bigOrSmall(bigOrSmallArray))
@@ -363,29 +363,34 @@ console.log(totalFrogs)
 
 buyChocolateFrogs2 = goldToSpend => {
   let chocolateFrog = 3
-  let amount = goldToSpend / chocolateFrog
+  let amount = (goldToSpend / chocolateFrog)
   if (amount >= 1) {
-    return `You can buy ${Math.floor(amount)} frog(s)`
+    return Math.round(amount)
   } else if (amount < chocolateFrog) {
     return 'not enough gold'
   }
 }
 
 let totalFrogs2 = buyChocolateFrogs2(4)
-console.log(totalFrogs)
+console.log(totalFrogs2)
+
 
 ////////////////// PROBLEM 21 ////////////////////
-let sampleArray = [0,1,2,3,4,5,5,3,8,9]
+let sampleArray = [0,1,2,3,4,5,6,7,8,9]
 /*
   Write a function that takes in an array of numbers as an argument. In the body of the function, write logic to determine if the array is in ascending order. The function should return true, if it is sorted in ascending order, false if it is not. Create a variable, `arrayIsAscending` and set it equal to your function invoked. Use the sample array to test this function.
 */
 
 isAscending = srt => {
-  for (i = 0; i<srt.length;i++) {
-    while (srt[i + 1] / srt[i]) {
-      return true
+  let compareValue = srt[0]
+  for (i = 1; i < srt.length; i++) {
+    if (compareValue >= srt[i]) {
+      return false
+    } else {
+      compareValue = srt[i]
     }
   }
+  return true
 }
 
 
@@ -415,14 +420,14 @@ function pond() {
 */
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = []
+let globalScope = ["duxk"]
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = []
+let bathroomScope = ["rubberDuck"]
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = []
+let bathtubScope = ["sailorDuck"]
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = []
+let pondScope = ["realDuck"]
 
